@@ -21,6 +21,23 @@
       "name": "fazer backend",
       "isDone": false,
       "id": 2
+    },
+    {
+      "name": "fazer usuário",
+      "isDone": false,
+      "id": 3
+    },
+    {
+      "name": "subir em algum servidor",
+      "isDone": false,
+      "id": 4
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "name": "Keven Leone",
+      "email": "keven.santos.sz@gmail.com"
     }
   ],
   "comments": [

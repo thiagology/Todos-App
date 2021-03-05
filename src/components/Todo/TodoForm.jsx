@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   Row, Form, Col, Button,
 } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import { GoPlus } from 'react-icons/go';
 import axios from '../../utils/api';
+import { TodoContext } from '../../pages/Todo/TodoContextProvider';
 
-export default function TodoForm({ todos, setTodos }) {
+export default function TodoForm() {
+  const [todos, setTodos] = useContext(TodoContext);
   const [todo, setTodo] = useState('');
 
   // eslint-disable-next-line consistent-return

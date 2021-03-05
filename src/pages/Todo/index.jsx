@@ -1,18 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { GiBroom } from 'react-icons/gi';
 import { toast } from 'react-toastify';
 import Page from '../../components/Page';
 import TodoForm from '../../components/Todo/TodoForm';
 import TodoList from '../../components/Todo/TodoList';
 import axios from '../../utils/api';
+import TodoContextProvider, { TodoContext } from './TodoContextProvider';
 
-export default function index() {
-  const [todos, setTodos] = useState([]); // estados dos Todos
-
-  const fetchData = async () => {
-    const response = await axios.get('/todos');
-    setTodos(response.data);
-  };
+function Todo() {
+  const [todos, setTodos] = useContext(TodoContext);
 
   const deleteAll = async () => {
     // eslint-disable-next-line no-restricted-syntax
@@ -34,12 +30,8 @@ export default function index() {
         toast.success(`Task ${todo.name} removed with success`);
       }
     }
-    fetchData();
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
   return (
 
     <Page title="Todo App">
@@ -71,3 +63,9 @@ export default function index() {
     </Page>
   );
 }
+
+export default () => (
+  <TodoContextProvider>
+    <Todo />
+  </TodoContextProvider>
+);
