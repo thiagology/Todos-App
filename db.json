@@ -1,0 +1,36 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "title": "Minha primeira requisição",
+      "author": "thiago",
+      "id": 2
+    }
+  ],
+  "todos": [
+    {
+      "name": "Refatorar com context",
+      "isDone": false,
+      "id": 1
+    },
+    {
+      "name": "fazer backend",
+      "isDone": false,
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
