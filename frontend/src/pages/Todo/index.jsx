@@ -10,6 +10,7 @@ import TodoContextProvider, { TodoContext } from './TodoContextProvider';
 function Todo() {
   const [todos, setTodos] = useContext(TodoContext);
 
+  // Função para apagar todos os Todo's
   const deleteAll = async () => {
     // eslint-disable-next-line no-restricted-syntax
     for (const todo of todos) {
@@ -21,6 +22,7 @@ function Todo() {
     setTodos([]);
   };
 
+  // Função para apagar os Todo's concluidos
   const deleteChecked = async () => {
     // eslint-disable-next-line no-restricted-syntax
     for (const todo of todos) {
@@ -52,7 +54,7 @@ function Todo() {
       {' '}
       <button type="button" className="btn btn-info" onClick={deleteChecked}>
         {' '}
-        Limpar Completos
+        Limpar concluidos
         {' '}
         <GiBroom />
         {' '}
