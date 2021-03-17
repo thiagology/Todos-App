@@ -4,7 +4,7 @@ const publicPaths = ["/", "/api/auth"];
 
 const authMiddleware = (req, res, next) => {
   const {
-    headers: { authorization },
+    headers: { authorization }, // cabeçalho contendo o token de autorização
     url,
     method,
   } = req;
@@ -18,8 +18,8 @@ const authMiddleware = (req, res, next) => {
       throw new Error("Authorization not exists");
     }
 
-    const [, token] = authorization.split(" ");
-    const user = jwt.verify(token, process.env.JWT_SECRET);
+    const [, token] = authorization.split(" "); // quebra a string e pega só o que tem depois do baerer
+    const user = jwt.verify(token, process.env.JWT_SECRET); // valida o token
 
     req.headers.loggedUser = user;
 
