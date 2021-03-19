@@ -26,7 +26,7 @@ export default function TodoForm() {
       setTodo('');
       toast.success('Task created with success!');
     } catch (error) {
-      toast.info('Task was not created.');
+      toast.info(error.response.data.message);
     }
   };
 

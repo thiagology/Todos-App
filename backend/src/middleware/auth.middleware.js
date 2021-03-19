@@ -10,7 +10,7 @@ const authMiddleware = (req, res, next) => {
   } = req;
 
   if (publicPaths.includes(url) || (url === "/api/user" && method === "POST")) {
-    return next();
+    return next(); //retorna pra não excutar a debaixo
   }
 
   try {

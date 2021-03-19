@@ -52,7 +52,11 @@ function Todo() {
         <GiBroom />
       </button>
       {' '}
-      <button type="button" className="btn btn-info" onClick={deleteChecked}>
+      <button 
+      disabled={todos.length === 0}
+      type="button"
+      className="btn btn-info"
+       onClick={deleteChecked}>
         {' '}
         Limpar concluidos
         {' '}

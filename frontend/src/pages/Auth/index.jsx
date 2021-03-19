@@ -7,7 +7,7 @@ import api from '../../utils/api';
 import { tokenKey } from '../../utils/constants';
 
 export default function SignIn({ history }) {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(true); // estado da pagina de login 
 
   // estado inicial do formulario de login
   const [form, setForm] = useState({
@@ -30,10 +30,10 @@ export default function SignIn({ history }) {
     try {
       if (isLogin) {
         const response = await api.post('/auth', form);
-        localStorage.setItem(tokenKey, response.data.token);
+        localStorage.setItem(tokenKey, response.data.token); //salvando token no local Storage
         toast.info('Welcome, user');
         history.push('/home');
-      } else {
+      } else { // submit do cadastro
         await api.post('/user', form);
         toast.info('User created with success');
         setIsLogin(true);
@@ -65,7 +65,11 @@ export default function SignIn({ history }) {
           <Form.Control name="password" type="password" value={form.password} onChange={onChange} />
         </Form.Group>
 
-        <div className="mb-4">
+        <div className="mb-3">
+          <Button type="submit">{title}</Button>
+        </div>
+
+        <div>
           <Button
             onClick={() => setIsLogin(!isLogin)}
             variant="outline-primary"
@@ -74,7 +78,7 @@ export default function SignIn({ history }) {
           </Button>
         </div>
 
-        <Button type="submit">{title}</Button>
+        
       </Form>
     </Page>
   );

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import Page from '../../components/Page';
 
-export default function index() {
+export default function Index() {
   // Array de boas vindas
   const welcomes = ['Bem vindo', 'O que você pode fazer hoje?', 'Como está se sentindo hoje?', 'Um dia após o outro', 'Quais são seus objetivos?'];
   const [welcome, setWelcome] = useState([welcomes]); // estado do array de boas vindas
