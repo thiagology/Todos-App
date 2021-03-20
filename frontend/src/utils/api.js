@@ -8,7 +8,7 @@ const myAxios = axios.create({
   baseURL: apiBaseURL,
 });
 
-myAxios.interceptors.request.use((request) => {
+myAxios.interceptors.request.use((request) => { // atualiza os dados do token quando houver um request
   const token = localStorage.getItem(tokenKey);
 
   if (token) {
@@ -22,7 +22,7 @@ myAxios.interceptors.response.use((response) => {
   if (response.status >= 400) {
     toast.error('Request Failed ...');
   }
-
+  
   return response;
 });
 

@@ -43,11 +43,11 @@ const TodoList = () => {
     setShowModal(!showModal);
   };
 
-  const handleRemove = async ({ id }) => {
-    const newTodos = todos.filter((todo) => todo.id !== id);
+  const handleRemove = async ({ _id }) => {
+    const newTodos = todos.filter((todo) => todo.id !== _id);
 
     try {
-      await axios.delete(`/todos/${id}`);
+      await axios.delete(`/todo/${_id}`);
       setTodos(newTodos);
       toast.success('Task removed with success!');
     } catch (e) {
@@ -59,7 +59,7 @@ const TodoList = () => {
   const onEditTodo = async () => {
     const name = text;
     const newTodos = todos.map((todo) => {
-      if (todo.id === editTodo.id) {
+      if (todo._id === editTodo._id) {
         return {
           ...todo,
           name,
@@ -69,7 +69,7 @@ const TodoList = () => {
       return todo;
     });
     try {
-      await axios.put(`/todos/${editTodo.id}`, { ...editTodo, name });
+      await axios.put(`/todo/${editTodo._id}`, { ...editTodo, name });
       setTodos(newTodos);
       handleEdit();
       toast.success('Task updated with success!');

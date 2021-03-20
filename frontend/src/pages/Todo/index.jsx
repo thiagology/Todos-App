@@ -15,7 +15,7 @@ function Todo() {
     // eslint-disable-next-line no-restricted-syntax
     for (const todo of todos) {
       // eslint-disable-next-line no-await-in-loop
-      await axios.delete(`/todos/${todo.id}`);
+      await axios.delete(`/todo/${todo.id}`);
       toast.success(`Task ${todo.name} removed with success`);
     }
 
@@ -28,7 +28,7 @@ function Todo() {
     for (const todo of todos) {
       if (todo.isDone === true) {
         // eslint-disable-next-line no-await-in-loop
-        await axios.delete(`/todos/${todo.id}`);
+        await axios.delete(`/todo/${todo.id}`);
         toast.success(`Task ${todo.name} removed with success`);
       }
     }

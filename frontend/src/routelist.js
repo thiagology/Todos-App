@@ -9,27 +9,32 @@ const routes = [
     {
       component: Home,
       name: 'Home',
-      path: '/',
+      path: '/home',
+      private: true,
     },
     {
       component: User,
       name: 'User',
       path: '/user',
+      private: true,
     },
     {
       component: EditUser,
       path: '/user/:id',
       visible: false,
+      private: true,
     },
     {
       component: Todo,
       name: 'Todo',
       path: '/todo',
+      private: true,
     },
     {
       component: Auth,
       path: '/auth',
       visible: false,
+      private: false,
     },
   ];
 

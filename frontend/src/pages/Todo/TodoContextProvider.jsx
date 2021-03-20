@@ -10,8 +10,8 @@ export default function TodoContextProvider({ children }) {
   // recebe e atualiza as informações da pagina
   const fetchData = async () => {
     try {
-      const response = await axios.get('/todos');
-      setTodos(response.data);
+      const response = await axios.get('/todo');
+      setTodos(response.data.data);
     } catch (error) {
       toast.info(error.response.data.message);
     }

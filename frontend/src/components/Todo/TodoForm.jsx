@@ -16,11 +16,11 @@ export default function TodoForm() {
     event.preventDefault();
 
     try {
-      const response = await axios.post('/todos', { name: todo, isDone: false });
+      const response = await axios.post('/todo', { name: todo, isDone: false });
 
       setTodos([
         ...todos,
-        response.data,
+        response.data.data,
       ]);
 
       setTodo('');
