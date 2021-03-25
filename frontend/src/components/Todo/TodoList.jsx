@@ -19,7 +19,7 @@ const TodoList = () => {
     const { checked: isDone } = event.target;
 
     const newTodos = todos.map((todo) => {
-      if (todo.id === editTodos.id) {
+      if (todo._id === editTodos._id) {
         return {
           ...todo,
           isDone,
@@ -30,10 +30,11 @@ const TodoList = () => {
     });
 
     try {
-      await axios.put(`todos/${editTodos.id}`, { ...editTodos, isDone });
+      await axios.put(`todo/${editTodos._id}`, { ...editTodos, isDone });
       setTodos(newTodos);
     } catch (e) {
       console.log(e);
+      toast.warning('Oops... Something went wrong.');
     }
   };
 

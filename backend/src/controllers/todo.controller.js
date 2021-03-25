@@ -11,6 +11,7 @@ class Todo {
 
   async store(req, res) {
     const body = req.body;
+    console.log(body);
 
     const { _id: userId } = req.headers.loggedUser;
 

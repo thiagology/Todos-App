@@ -15,7 +15,7 @@ function Todo() {
     // eslint-disable-next-line no-restricted-syntax
     for (const todo of todos) {
       // eslint-disable-next-line no-await-in-loop
-      await axios.delete(`/todo/${todo.id}`);
+      await axios.delete(`/todo/${todo._id}`);
       toast.success(`Task ${todo.name} removed with success`);
     }
 
@@ -28,7 +28,7 @@ function Todo() {
     for (const todo of todos) {
       if (todo.isDone === true) {
         // eslint-disable-next-line no-await-in-loop
-        await axios.delete(`/todo/${todo.id}`);
+        await axios.delete(`/todo/${todo._id}`);
         toast.success(`Task ${todo.name} removed with success`);
       }
     }
@@ -38,8 +38,8 @@ function Todo() {
 
     <Page title="Todo App">
 
-      <TodoForm todos={todos} setTodos={setTodos} />
-      <TodoList todos={todos} setTodos={setTodos} />
+      <TodoForm />
+      <TodoList />
 
       <button
         disabled={todos.length === 0}
@@ -70,7 +70,8 @@ function Todo() {
   );
 }
 
-export default () => (
+// eslint-disable-next-line import/no-anonymous-default-export
+export default ()  => (
   <TodoContextProvider>
     <Todo />
   </TodoContextProvider>

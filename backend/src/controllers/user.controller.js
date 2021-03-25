@@ -34,7 +34,7 @@ class User {
     res.send({ data: user });
   }
 
-    // acha user por id
+  // acha user por id
   async getOne(req, res) {
     const { id } = req.params; // recupera o id da requisição
 
@@ -86,19 +86,19 @@ class User {
     const { email, password } = req.body;
 
     try {
-      const user = await UserModel.findOne({ email }).lean(); // procura um objeto como pleno, retorna so os dados
+      const user = await UserModel.findOne({ email }).lean();
 
       if (!user) {
         throw new Error("User not exists");
       }
 
-      const isValid = await bcrypt.compare(password, user.password); // comparando as senhas
+      const isValid = await bcrypt.compare(password, user.password);
 
       if (!isValid) {
         throw new Error("Password invalid");
       }
 
-      const token = jwt.sign(user, process.env.JWT_SECRET) // gerando um token
+      const token = jwt.sign(user, process.env.JWT_SECRET)
 
       res.send({ token });
     } catch (error) {

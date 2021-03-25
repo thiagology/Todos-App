@@ -11,7 +11,7 @@ const ListView = ({ columns, endpoint, fetchCount }) => {
       const response = await api.get(endpoint);
       setRows(response.data.data);
     } catch (error) {
-      toast.info(error.response.data.message);
+      toast.info('Erro inesperado');
     }
 
   };

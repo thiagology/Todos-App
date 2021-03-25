@@ -20,7 +20,7 @@ const app = express();
 // middleware
 app.use(cors());
 app.use(express.json());
-//app.use(authMiddleware);
+app.use(authMiddleware);
 app.use(morgan("dev"));
 
 app.use(Routes);

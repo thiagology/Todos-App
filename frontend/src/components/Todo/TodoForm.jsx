@@ -20,13 +20,13 @@ export default function TodoForm() {
 
       setTodos([
         ...todos,
-        response.data.data,
+        response.data,
       ]);
 
       setTodo('');
       toast.success('Task created with success!');
     } catch (error) {
-      toast.info(error.response.data.message);
+      toast.info('Erro inesperado');
     }
   };
 

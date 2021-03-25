@@ -13,7 +13,7 @@ export default function TodoContextProvider({ children }) {
       const response = await axios.get('/todo');
       setTodos(response.data.data);
     } catch (error) {
-      toast.info(error.response.data.message);
+      toast.error('Oops... something went wrong');
     }
   };
 
